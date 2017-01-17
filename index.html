@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery Tag It</title>
+	
+	<!-- Required CSS Files -->
+	<link href="css/jquery.tagit.css" rel="stylesheet">
+    <link href="css/tagit.ui-zendesk.css" rel="stylesheet">
+</head>
+<body>
+	<h2 style="margin:0;">jQuery Tag It (Customized Plug-in)</h2>
+	<small>Simple and configurable tag editing widget with auto-complete support</small>
+	
+	<br/><hr/>
+	
+	<h3>Input Field</h3>
+	<form>
+		<input name="tags" id="mySingleField" value="Bangladesh, Pakistan" disabled="true">
+		<ul id="singleFieldTags"></ul>
+		<input type="submit" value="Submit">
+	</form>
+	
+	<br/><hr/>
+	
+	<h3>Read Only</h3>
+	<form>
+		<ul id="readOnlyTags">
+			<li>Tag1</li>
+			<li>Tag2</li>
+		</ul>
+	</form>
+	
+	<!-- Required JS Files -->
+	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<script src="js/tag-it.min.js"></script>
+	
+	<!-- Scripts for Tag It -->
+    <script>
+        $(function(){
+            var sampleTags = ['Bangladesh', 'Pakistan', 'India', 'America', 'England', 'Australia'];
+			
+			//-------------------------------
+            // Input field
+            //-------------------------------
+            $('#singleFieldTags').tagit({
+                availableTags: sampleTags,
+                // This will make Tag-it submit a single form value, as a comma-delimited field.
+                singleField: true,
+                singleFieldNode: $('#mySingleField'),
+				allowSpaces: true
+            });
+			
+			//-------------------------------
+            // Read only
+            //-------------------------------
+            $('#readOnlyTags').tagit({
+                readOnly: true
+            });
+		});
+    </script>
+</body>
+</html>
